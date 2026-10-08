@@ -152,7 +152,7 @@ export async function buildApp({ env, store, fetchImpl, clientDir, logger = true
   await app.register(fastifyStatic, { root: mediaDir, prefix: '/media/', decorateReply: false, serve: true, allowedPath: () => true });
 
   if (clientDir && existsSync(clientDir)) {
-    await app.register(fastifyStatic, { root: clientDir, prefix: '/', wildcard: false });
+    await app.register(fastifyStatic, { root: clientDir, prefix: '/' });
     app.setNotFoundHandler((req, reply) => {
       if (req.url.startsWith('/api/') || req.url.startsWith('/media/')) return reply.status(404).send({ error: 'Not found' });
       return reply.type('text/html').sendFile('index.html', clientDir);

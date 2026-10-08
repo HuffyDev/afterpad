@@ -19,7 +19,7 @@ const schema = z.object({
    * no transaction) when PumpPortal / IPFS / RPC are unreachable. Ignored when DRY_RUN=false.
    */
   MOCK_FALLBACK: bool(true),
-  AFTER_MINT: z.string().optional(),
+  AFTER_MINT: z.string().default('EzKfAPBJDBEMpwcgqVzGyAcVvtoRK8sNNvBHoXkSpump'),
   AFTER_X_URL: z.string().optional(),
   AFTER_TELEGRAM_URL: z.string().optional(),
   PINATA_JWT: z.string().optional(),
